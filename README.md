@@ -1,7 +1,8 @@
+# Elastic Net Repeater
 **R Function Name:**  
 EN_Repeat
 
-**Overview:**  
+## Overview:  
 Elastic net is a form of penalized linear regression that performs feature selection by shrinking beta coefficients of predictor variables using a penalty term, 
 the stength of which is determined using a hyperperamater lambda, with a smaller lambda selecting more predictor terms, and larger selecting fewer. A range of values are used for lambda,
 and ultimately the model using the lambda value and selected features that produces the lowest mean squared error (MSE) are found. In this way, Elastic Net can be used to identify important 
@@ -15,7 +16,7 @@ of selected features that produce the lowest MSE across many trials. This functi
 **Usage:**  
 EN_Repeat_Results <- EN_Repeat(clin_df, protein_list, control_list, trait_list, alpha, iterations, heatmap=FALSE)
 
-**Arguments**  
+## Arguments  
 | Parameter       | Type        | Description                                                                                             |
 |----------------|-------------|---------------------------------------------------------------------------------------------------------|
 | `clin_df `     | `dataframe` | Table of microarray data containing gene expression values and covariates by columns, sample IDs by row |
@@ -26,7 +27,7 @@ EN_Repeat_Results <- EN_Repeat(clin_df, protein_list, control_list, trait_list, 
 | `interations`  | `numeric `  | Number indicating the number of times the analysis will be run                                          |
 | `heatmap`      | `boolean `  | Boolean value determining if a heatmap displaying effect size by feature and trait will be returned     |
 
-**Return Values:**  
+## Return Values:  
 - Coef is a table showing the penalized effect size of each feature for each supplied trait.
 - Lambda is a table showing the supplied alpha and optimized lambda across many runs for each parameter of the trait_list.
 - Heatmap is a graphical representation of the penalized effect size of each feature for each supplied trait.
@@ -41,16 +42,16 @@ EN_Repeat_Results <- EN_Repeat(clin_df, protein_list, control_list, trait_list, 
   <img src="images/Example_ivsum.JPG" alt="Example Image of Selected Features" width="500">
 </p>
 
-**Dependencies:**  
+## Dependencies:  
 glmnet  
 ggplot2  
 heatmaply  
 doParallel
 
-**Notes**  
+## Notes  
 This function will produce an error if the heatmap functionality is set to true and any of the parameters have 0 selected features. If this error occurs, set heatmap to false.
 
-**Author**  
+## Author  
 Bradley Olinger, PhD  
 b.a.olinger@gmail.com
 
